@@ -1,4 +1,4 @@
-const modalContenedor = document.querySelector(".modal-container")// le ponemos querySelector para que me traiga el primer elemento mque encuentre, el className me traeria mas de un elemento
+const modalContenedor = document.querySelector(".modal-container")// le ponemos querySelector para que me traiga el primer elemento que encuentre, el className me traeria mas de un elemento
 
 const abrirCarrito = document.getElementById("open")
 

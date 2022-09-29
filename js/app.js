@@ -9,7 +9,7 @@ const mostrarProductos = (productos) => {
                            <div class="card-body">
                            <h5 class="card-title">${producto.nombre}</h5>
                            <p class="card-text">descripcion:${producto.desc}</p>
-                           <p class="card-text">precio: $ ${producto.precio}</p>
+                           <p class="card-text">precio: $${producto.precio}</p>
                            <button class="btn btn-primary" id=boton${producto.id}>comprar</button>
                            </div>
                         </div>`
@@ -19,9 +19,16 @@ const mostrarProductos = (productos) => {
         const boton = document.getElementById(`boton${producto.id}`);
 
         boton.addEventListener('click', () => {
-            //evento que queremos que clickee
-           carritoIndex(producto.id)
-            alert(`se agrego el producto ${producto.nombre}`)
+             //evento que queremos que clickee
+             carritoIndex(producto.id)          
+             Swal.fire({
+               position: 'top-end',
+               icon: 'success',
+               title: `se a agregado al carrito ${producto.nombre}`,
+               showConfirmButton: false,
+               timer: 1500
+             })
+           
 
         })
     });
