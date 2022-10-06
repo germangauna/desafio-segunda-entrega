@@ -50,4 +50,3 @@ const productos = [
 
 ];
 
-localStore.setItem("productos", JSON.stringify(productos));
