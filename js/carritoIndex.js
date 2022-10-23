@@ -1,4 +1,4 @@
-const carritoDeCompras = []
+const carritoDeCompras = JSON.parse(localStorage.getItem("carrito")) || [];
 
 const carritoIndex = (productoId) => {
 
@@ -16,11 +16,11 @@ const carritoIndex = (productoId) => {
 
         div.innerHTML = `<p>${producto.nombre}</p>
                          <p>precio: ${producto.precio}</p>
-                         <p id= "cantidad ${producto.id}">Canidad: ${producto.cantidad}</p>
+                         <p id= "cantidad ${producto.id}">Cantidad: ${producto.cantidad}</p>
                          <button id="eliminar${producto.id}" class="boton-eliminar" ><i class="fa-solid fa-trash-can"></i>eliminar</button>`
         contenedorCarrito.appendChild(div)
 
-        const botonEliminar = document.getElementById(`eliminar${producto.id}`);
+        const botonEliminar = document.getElementById(`eliminar ${producto.id}`);
 
         botonEliminar.addEventListener('click', () => {
             //evento que queremos que clickee
@@ -46,8 +46,11 @@ const carritoIndex = (productoId) => {
 
         })
     }
-
+    saveLocal()
     renderProductosCarrito()
 }
 
-/* CREr un funcion para eliminar los productos del carrito*/
+const saveLocal = () => {
+    localStorage.setItem("carrito", JSON.stringify(carritoDeCompras));
+};
+
